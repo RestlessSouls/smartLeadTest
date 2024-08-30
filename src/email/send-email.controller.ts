@@ -2,6 +2,7 @@ import { Controller, Post, Body } from '@nestjs/common';
 import { SendEmailService } from './send-email.service';
 import { SendEmailDto } from './dto/send-email.dto';
 
+/* Send Email Controller */
 @Controller('send-email')
 export class SendEmailController {
   constructor(private readonly sendEmailService: SendEmailService) {}

@@ -1,6 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsEmail, IsNotEmpty, IsString } from 'class-validator';
 
+/* DTO for sending email, capturing all parameters/field of UI page 2 */
+
 export class SendEmailDto {
   @IsEmail()
   @IsNotEmpty()

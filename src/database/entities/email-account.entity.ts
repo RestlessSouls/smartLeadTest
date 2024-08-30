@@ -1,5 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
+/* Database Table with Name as EmailAccount to save the details from page 1 */
 @Entity()
 export class EmailAccount {
   @PrimaryGeneratedColumn()

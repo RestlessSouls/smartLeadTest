@@ -5,6 +5,7 @@ import { CreateEmailAccountDto } from './dto/create-email-account.dto';
 import { EmailAccount } from '../database/entities/email-account.entity';
 import * as nodemailer from 'nodemailer';
 
+/* Email Account Service Class */
 @Injectable()
 export class EmailAccountService {
   constructor(
@@ -12,6 +13,7 @@ export class EmailAccountService {
     private emailAccountRepository: Repository<EmailAccount>,
   ) {}
 
+  /* Create method to validate the transpoter details and save it to db if all fine */
   async create(createEmailAccountDto: CreateEmailAccountDto): Promise<EmailAccount> {
 
     const transporter = nodemailer.createTransport({
@@ -34,13 +36,7 @@ export class EmailAccountService {
     return this.emailAccountRepository.save(emailAccount);
   }
 
-  // async getLatest(): Promise<EmailAccount> {
-  //   return this.emailAccountRepository.findOne({
-  //     where: {}, 
-  //     order: { id: 'DESC' },
-  //   });
-  // }
-
+  /* Method to fetch the latest entry in db to get the details for from param before sending email */
   async getLatest(): Promise<EmailAccount> {
     const accounts = await this.emailAccountRepository.find({
       order: { id: 'DESC' },
